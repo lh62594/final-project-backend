@@ -20,10 +20,18 @@ require 'json'
 #   password: "test1"
 # )
 
+# User.create(
+#   first_name: "abc",
+#   last_name: "123",
+#   email: "abc123@testing.com",
+#   username: "abc",
+#   password: "123"
+# )
+
 # Seed Data for dashboards
 # As soon as a User is created, it also automatically creates the main dashboard
 # Dashboard.create(
-#   user_id: 1,
+#   user_id: 2,
 #   name: "main"
 # )
 #
@@ -33,8 +41,8 @@ require 'json'
 # )
 #
 # EquityDashboard.create(
-#   dashboard_id: 2,
-#   equity_id: 3500
+#   dashboard_id: 4,
+#   equity_id: 5000
 # )
 
 # Seeding for Stocks
