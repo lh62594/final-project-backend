@@ -1,0 +1,2 @@
+class EquityDashboard < ApplicationRecord
+end
