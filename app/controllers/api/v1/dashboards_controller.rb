@@ -1,8 +1,9 @@
 class Api::V1::DashboardsController < ApplicationController
 
   def index
+    # byebug
     @dashboards = Dashboard.all
-    render json: @dashboards
+    render json: @dashboards, :include => :equities
   end
 
   def create
