@@ -7,9 +7,12 @@ class Api::V1::DashboardsController < ApplicationController
   end
 
   def create
+    @dashboard = Dashboard.create(dashboard_params)
+    render json: @dashboard
   end
 
   def delete
+    find_dashboard
     @dashboard.destroy
   end
 
@@ -20,6 +23,7 @@ private
   end
 
   def dashboard_params
+    params.permit(:user_id, :name, :newsfeed)
   end
 
 end
