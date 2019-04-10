@@ -10,9 +10,20 @@ class Api::V1::EquityDashboardsController < ApplicationController
     render json: @eqdashboard
   end
 
-  def delete
-    find_dashboard
-    @dashboard.destroy
+  def show
+    find_equity_dashboard
+    render json: @eqdashboard
+  end
+
+  def update
+    find_equity_dashboard
+    @eqdashboard.update(eqdashboard_params)
+    render json: @eqdashboard
+  end
+
+  def destroy
+    find_equity_dashboard
+    @eqdashboard.destroy
   end
 
   private

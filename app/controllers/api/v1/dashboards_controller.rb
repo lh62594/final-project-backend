@@ -11,9 +11,15 @@ class Api::V1::DashboardsController < ApplicationController
     render json: @dashboard
   end
 
-  def delete
+  def destroy
     find_dashboard
     @dashboard.destroy
+  end
+
+  def update
+    find_dashboard
+    @dashboard.update(dashboard_params)
+    render json: @dashboard
   end
 
 private
