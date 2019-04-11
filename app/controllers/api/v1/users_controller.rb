@@ -27,3 +27,5 @@ class Api::V1::UsersController < ApplicationController
   end
 
 end
+
+#demo account: pw 1234a
