@@ -10,6 +10,7 @@ class Api::V1::UsersController < ApplicationController
     if @user.save
       jwt = encode_token({user_id: @user.id})
       Dashboard.create(user_id: @user.id, name: "main", newsfeed: true)
+      Portfolio.create(user_id: @user.id)
       render json: {user: @user, jwt: jwt}
     else
       render json: {errors: user.errors.full_messages}

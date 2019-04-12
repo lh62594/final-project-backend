@@ -1,11 +1,8 @@
 class PortfolioSerializer < ActiveModel::Serializer
-  attributes :id, :user_id, :name
+  attributes :id, :user_id, :name, :portfoliostats
 
   belongs_to :user
-  # has_many :equity_dashboards
-  # has_many :equities, :through => :equity_dashboards, :source => :equities
-  # has_many :equities, through: :equity_dashboards
-
+  has_many :portfoliostats
   has_many :subportfolios
-  has_many :equities, through: :subportfolios
+  # has_many :equities, through: :subportfolios
 end

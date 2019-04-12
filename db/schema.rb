@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_05_152135) do
+ActiveRecord::Schema.define(version: 2019_04_12_142448) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,16 +52,37 @@ ActiveRecord::Schema.define(version: 2019_04_05_152135) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "portfoliostats", force: :cascade do |t|
+    t.integer "portfolio_id"
+    t.date "date"
+    t.decimal "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "stats", force: :cascade do |t|
+    t.integer "subportfolio_id"
+    t.date "date"
+    t.decimal "price"
+    t.integer "quantity"
+    t.decimal "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "subportfolios", force: :cascade do |t|
-    t.string "name"
     t.integer "portfolio_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "equity_id"
     t.string "category"
-    t.integer "initial_px"
+    t.decimal "initial_px"
     t.date "date_bought"
     t.date "date_sold"
+    t.integer "quantity"
+    t.decimal "end_px"
+    t.decimal "initial_value"
+    t.decimal "end_value"
   end
 
   create_table "users", force: :cascade do |t|
@@ -72,6 +93,7 @@ ActiveRecord::Schema.define(version: 2019_04_05_152135) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "account_balance"
   end
 
 end
