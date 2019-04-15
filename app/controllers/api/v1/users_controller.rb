@@ -17,6 +17,12 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
+  def update
+    find_user
+    @user.update(user_params)
+    render json: @user
+  end
+
   private
 
   def find_user
@@ -24,7 +30,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def user_params
-    params.permit(:first_name, :last_name, :email, :username, :password)
+    params.permit(:first_name, :last_name, :email, :username, :password, :account_balance)
   end
 
 end

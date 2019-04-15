@@ -14,6 +14,8 @@ gem 'rb-readline'
 
 gem 'jwt'
 
+gem 'whenever', require: false
+
 gem 'dotenv-rails', groups: [:development, :test]
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

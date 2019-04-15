@@ -32,7 +32,7 @@ class Api::V1::SubportfoliosController < ApplicationController
     end
 
     def subportfolio_params
-      params.permit(:portfolio_id, :equity_id)
+      params.permit(:portfolio_id, :equity_id, :initial_px, :category, :date_bought, :date_sold, :quantity, :end_px, :initial_value, :end_value)
     end
 
 end
