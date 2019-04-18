@@ -28,7 +28,7 @@ private
   end
 
   def portfolio_params
-    params.permit(:user_id, :name, :newsfeed)
+    params.permit(:user_id, :name, :account_balance)
   end
 
 

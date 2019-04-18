@@ -1,5 +1,5 @@
 class PortfolioSerializer < ActiveModel::Serializer
-  attributes :id, :user_id, :name
+  attributes :id, :user_id, :name, :account_balance
 
   belongs_to :user
   # has_many :portfoliostats
