@@ -47,25 +47,25 @@ require 'json'
 
 # Seeding for Stocks
 #first seed up to 3500 --> somewhere at the end it breaks (skip that one)
-# def get_data
-#   response_string = RestClient.get("https://api.iextrading.com/1.0/ref-data/symbols")
-#   response_hash = JSON.parse(response_string)
-#   # response_hash[6001..9000]
-# end
-#
-#
-# get_data.each do |stock|
-#     res = RestClient.get("https://api.iextrading.com/1.0/stock/#{stock['symbol']}/company")
-#     hash = JSON.parse(res)
-#     Equity.create(
-#       symbol: stock["symbol"],
-#       company_name: stock["name"],
-#       exchange: hash["exchange"],
-#       industry: hash["industry"],
-#       website: hash["website"],
-#       description: hash["description"],
-#       ceo: hash["CEO"],
-#       sector: hash["sector"],
-#       tags: hash["tags"]
-#     )
-# end
+def get_data
+  response_string = RestClient.get("https://api.iextrading.com/1.0/ref-data/symbols")
+  response_hash = JSON.parse(response_string)
+  response_hash[0..3500]
+end
+
+
+get_data.each do |stock|
+    res = RestClient.get("https://api.iextrading.com/1.0/stock/#{stock['symbol']}/company")
+    hash = JSON.parse(res)
+    Equity.create(
+      symbol: stock["symbol"],
+      company_name: stock["name"],
+      exchange: hash["exchange"],
+      industry: hash["industry"],
+      website: hash["website"],
+      description: hash["description"],
+      ceo: hash["CEO"],
+      sector: hash["sector"],
+      tags: hash["tags"]
+    )
+end
