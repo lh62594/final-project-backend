@@ -46,11 +46,11 @@ require 'json'
 # )
 
 # Seeding for Stocks
-#first seed up to 3500 --> somewhere at the end it breaks (skip that one)
+#first seed up to 3300 --> bad URI is at 3314!!! (GIG^)
 def get_data
   response_string = RestClient.get("https://api.iextrading.com/1.0/ref-data/symbols")
   response_hash = JSON.parse(response_string)
-  response_hash[0..3500]
+  response_hash[3315..9000]
 end
 
 
@@ -69,3 +69,11 @@ get_data.each do |stock|
       tags: hash["tags"]
     )
 end
+
+# response_hash[3315..3316].each do |stock|
+#   res = RestClient.get("https://api.iextrading.com/1.0/stock/#{stock['symbol']}/company")
+#   hash = JSON.parse(res)
+#   puts "*******************************************"
+#   puts stock["name"]
+#   puts hash["industry"]
+# end
