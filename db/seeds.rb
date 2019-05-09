@@ -51,7 +51,7 @@ require 'json'
 def get_data
   response_string = RestClient.get("https://api.iextrading.com/1.0/ref-data/symbols")
   response_hash = JSON.parse(response_string)
-  response_hash[4625..9000]
+  response_hash[8192..9000]
 end
 
 
